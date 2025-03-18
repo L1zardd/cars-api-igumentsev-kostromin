@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 import psycopg2
+from class.py import Car, add_accident
+from save_load.py import save_car,load_car,save_accident,load_accident
 
 app = Flask(__name__)
 
@@ -170,6 +172,8 @@ def delete_accident(id):
     conn.close()
     
     return jsonify({"message": "ДТП успешно удалено."})
+
+
 
 if __name__ == 'main':
     app.run(debug=True)
